@@ -29,10 +29,10 @@ body::before {
     max-width: 420px;
     min-height: 100vh;
 
-    background: url('../assets/bg.jpeg') center/contain no-repeat;
+    background: url('../assets/bg.jpeg') center/cover no-repeat;
 
     display: flex;
-    flex-direction: column; /* 🔥 penting */
+    flex-direction: column;
     align-items: center;
 
     padding: 30px 20px;
