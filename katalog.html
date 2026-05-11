@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog - Arf.Store</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/katalog.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1 data-text="Gallery ARF.Store">Gallery ARF.Store</h1>
+    <div class="grid" id="grid"></div>
+</div>
+
+<a href="index.html" class="home-btn">
+    <i class="fa-solid fa-house"></i>
+</a>
+
+<script>
+const products = [
+    {
+        name: "REBEL CORE TEE",
+        image: "assets/products/1.jpeg",
+        desc: "Kaos streetwear premium dengan bahan cotton 24s, nyaman dipakai harian."
+    },
+    {
+        name: "NO RULES TEE",
+        image: "assets/products/2.jpeg",
+        desc: "Desain minimalis dengan pesan bebas aturan."
+    },
+    {
+        name: "BREAK THE RULES TEE",
+        image: "assets/products/3.jpeg",
+        desc: "Oversized streetwear dengan vibe urban modern."
+    },
+    {
+        name: "GLOBAL REBEL TEE",
+        image: "assets/products/4.jpeg",
+        desc: "Style global streetwear dengan sentuhan grafis bold."
+    },
+    {
+        name: "URBAN CHAOS TEE",
+        image: "assets/products/5.jpeg",
+        desc: "Terinspirasi dari chaos kota besar, cocok buat daily outfit edgy."
+    },
+    {
+        name: "RAW ENERGY TEE",
+        image: "assets/products/6.jpeg",
+        desc: "Energi mentah dalam desain simple tapi kuat karakter."
+    },
+    {
+        name: "ANARCHY CORE",
+        image: "assets/products/7.jpeg",
+        desc: "Oversized streetwear dengan vibe urban modern."
+    },
+    {
+        name: "DARK FREEDOM",
+        image: "assets/products/8.jpeg",
+        desc: "Style global streetwear dengan sentuhan grafis bold."
+    },
+    {
+        name: "REBEL FLAG",
+        image: "assets/products/9.jpeg",
+        desc: "Terinspirasi dari chaos kota besar, cocok buat daily outfit edgy."
+    },
+    {
+        name: "NO FUTURE",
+        image: "assets/products/10.jpeg",
+        desc: "Energi mentah dalam desain simple tapi kuat karakter."
+    }
+];
+
+const grid = document.getElementById("grid");
+
+function renderProducts() {
+    grid.innerHTML = "";
+
+    products.forEach((p, i) => {
+        grid.innerHTML += `
+        <div class="flip-card" id="card-${i}">
+            <div class="flip-inner">
+
+                <!-- FRONT -->
+                <div class="flip-front card">
+                    <img src="${p.image}" alt="${p.name}">
+                    <h3>${p.name}</h3>
+
+                    <button class="btn" onclick="flipCard(${i})">
+                        <i class="fa-solid fa-circle-info"></i> Deskripsi
+                    </button>
+                </div>
+
+                <!-- BACK -->
+                <div class="flip-back card">
+                    <h3>${p.name}</h3>
+                    <p>${p.desc}</p>
+
+                    <button class="btn" onclick="flipCard(${i})">
+                        <i class="fa-solid fa-rotate-left"></i> Kembali
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        `;
+    });
+}
+
+function flipCard(i) {
+    const card = document.getElementById(`card-${i}`);
+    card.classList.toggle("flipped");
+}
+
+renderProducts();
+</script>
+
+</body>
+</html>

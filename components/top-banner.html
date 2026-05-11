@@ -1,0 +1,45 @@
+<!-- TOP BAR -->
+<div class="top-bar">
+    <img src="assets/logo.png" alt="logo">
+    <span>ARF STORE</span>
+</div>
+
+<style>
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 420px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 15px;
+
+    background: #2b2e83;
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+
+    z-index: 999;
+}
+
+/* logo */
+.top-bar img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* text */
+.top-bar span {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+</style>

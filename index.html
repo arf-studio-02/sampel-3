@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arf.Store</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/home.css">
+
+</head>
+<body>
+<div id="top-bar-container"></div>
+<div class="container">
+    <div class="overlay" id="overlay"></div>
+<!-- Popup -->
+    <div id="popup" class="popup">
+         <span id="closeBtn">&times;</span>
+        <img id="popupImg" src="assets/logo.png">
+    </div>
+    <div class="content">
+
+        <div class="logo">
+    <img src="assets/logo.png" id="logoImg">
+</div>
+    <div class="content">
+
+        
+        <div class="brand">
+            <h2>ARF STORE</h2>
+            <p>No Rules, Just Style</p>
+        </div>
+
+        <h1 class="title">DEFINE YOUR<br>STREET STYLE</h1>
+
+        <p class="subtitle">
+            Complete your look with our raw & rebellious collection.
+        </p>
+
+        <div class="buttons">
+            <!-- Profile -->
+            <a href="katalog.html" target="_blank" class="btn">
+                <i class="fa-solid fa-bolt-lightning"></i> Gallery
+            </a>
+
+    <!-- Linkedin (langsung link) -->
+    <a href="#" class="btn social-btn" data-msg="Ini Hanya Sampel">
+        <i class="fa-brands fa-linkedin"></i> Linkedin
+    </a>
+    <!-- Instagram (pakai notif) -->
+    <a href="#" class="btn social-btn" data-msg="Ini Hanya Sampel">
+        <i class="fa-brands fa-instagram"></i> Instagram
+    </a>
+
+    <!-- Tiktok -->
+    <a href="#" class="btn social-btn" data-msg="Ini Hanya Sampel">
+        <i class="fa-brands fa-tiktok"></i> Tiktok
+    </a>
+
+    <!-- Twitter / X -->
+    <a href="#" class="btn social-btn" data-msg="Ini Hanya Sampel">
+        <i class="fa-brands fa-x-twitter"></i> X
+    </a>
+
+    <!-- Whatsapp -->
+    <a href="#" class="btn social-btn" data-msg="Ini Hanya Sampel">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
+
+    <!-- Telegram -->
+    <a href="#" class="btn social-btn" data-msg="Ini Hanya Sampel">
+        <i class="fa-brands fa-telegram"></i> Telegram
+    </a>
+
+</div>
+
+    </div>
+<p id="notif"></p>
+</div>
+
+     
+
+
+    </div>
+<div id="bottom-bar-container"></div>
+</div>
+
+</body>
+<script>
+
+fetch('components/top-banner.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('top-bar-container').innerHTML = data;
+  });
+
+const logo = document.getElementById("logoImg");
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popupImg");
+const overlay = document.getElementById("overlay");
+const closeBtn = document.getElementById("closeBtn");
+
+
+logo.onclick = () => {
+    console.log("LOGO CLICKED");
+    popup.classList.add("active");
+    overlay.classList.add("active");
+
+    popupImg.src = logo.src;
+    document.body.style.overflow = "hidden";
+};
+
+function closePopup() {
+    popup.classList.add("closing");
+
+    setTimeout(() => {
+        popup.classList.remove("active", "closing");
+        overlay.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }, 250); // sesuai durasi animasi
+}
+
+closeBtn.onclick = closePopup;
+overlay.onclick = closePopup;
+
+
+fetch('components/bottom-bar.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('bottom-bar-container').innerHTML = data;
+  });
+const buttons = document.querySelectorAll(".social-btn");
+const notif = document.getElementById("notif");
+
+buttons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const message = btn.dataset.msg || "Coming soon";
+
+        notif.innerText = message;
+        notif.classList.add("show");
+
+        setTimeout(() => {
+            notif.classList.remove("show");
+        }, 2000);
+    });
+});
+</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Arf.Store</title>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- OPTIONAL: your main css -->
+     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+    <!-- TOP BANNER INCLUDE -->
+    <div id="top-banner"></div>
+
+    <!-- ABOUT CONTENT -->
+    <main class="about-page">
+        <div class="about-card">
+            <div class="about-icon">
+                <i class="fas fa-store"></i>
+            </div>
+
+            <h2 class="about-title">About Arf.Store</h2>
+            <p class="about-desc">
+                Arf.Store adalah platform toko online sederhana yang dibuat untuk
+                memudahkan proses jual beli produk digital maupun fisik dengan sistem
+                checkout langsung ke WhatsApp.
+            </p>
+
+            <div class="about-info">
+                <div class="info-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Fast Checkout via WhatsApp</span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly Design</span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-code"></i>
+                    <span>Built with HTML, CSS & JS</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- BOTTOM BAR INCLUDE -->
+    <div id="bottom-bar"></div>
+
+
+    <!-- INCLUDE SCRIPT -->
+    <script>
+        // load top banner
+        fetch('components/top-banner.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('top-banner').innerHTML = data;
+            });
+
+        // load bottom bar
+        fetch('components/bottom-bar.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('bottom-bar').innerHTML = data;
+
+                // re-init active state kalau kamu pakai JS active bottom bar
+                initBottomBar();
+            });
+    </script>
+
+</body>
+</html>

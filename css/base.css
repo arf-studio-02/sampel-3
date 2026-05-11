@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* 🔥 Background blur */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../assets/bg.jpeg') center/cover no-repeat;
+    filter: blur(20px);
+    z-index: -1;
+}
+
+/* 📱 Area utama */
+.container {
+    width: 100%;
+    max-width: 420px;
+    min-height: 100vh;
+
+    background: url('../assets/bg.jpeg') center/contain no-repeat;
+
+    display: flex;
+    flex-direction: column; /* 🔥 penting */
+    align-items: center;
+
+    padding: 30px 20px;
+}

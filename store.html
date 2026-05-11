@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - ARF.Store</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/store.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+
+<div id="top-bar-container"></div>
+
+<div class="container">
+
+    <h1 class="title">STORE DROP</h1>
+    <p class="subtitle">Digital Product & Creative Service</p>
+
+
+    <!-- 🔥 SECTION 1 -->
+    <h2 class="section-title"></h2>
+    <div class="grid">
+        <div class="card">
+          <img src="assets/products/1.jpeg">
+            <div class="info">
+                <h3>REBEL CORE TEE</h3>
+              <div class="price">Rp 95.000</div>
+                <a href="#" class="btn-wa">
+                 <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+        
+        <div class="card">
+          <img src="assets/products/2.jpeg">
+            <div class="info">
+                <h3>NO RULES TEE</h3>
+              <div class="price">Rp 95.000</div>
+                <a href="#" class="btn-wa">
+                 <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+    
+        <div class="card">
+          <img src="assets/products/3.jpeg">
+            <div class="info">
+                <h3>BREAK THE RULES</h3>
+              <div class="price">Rp 95.000</div>
+                <a href="#" class="btn-wa">
+                 <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+          <img src="assets/products/4.jpeg">
+            <div class="info">
+                <h3>GLOBAL REBEL TEE</h3>
+              <div class="price">Rp 95.000</div>
+                <a href="#" class="btn-wa">
+                 <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+          <img src="assets/products/5.jpeg">
+            <div class="info">
+                <h3>URBAN CHAOS TEE</h3>
+              <div class="price">Rp 95.000</div>
+                <a href="#" class="btn-wa">
+                 <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔥 SECTION 2 -->
+    <h2 class="section-title"></h2>
+    <div class="grid">
+        
+        <div class="card">
+          <img src="assets/products/6.jpeg">
+            <div class="info">
+                <h3>RAW ENERGY TEE</h3>
+              <div class="price">Rp 95.000</div>
+                <a href="#" class="btn-wa">
+                 <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+          <img src="assets/products/7.jpeg">
+            <div class="info">
+                <h3>ANARCHY CORE</h3>
+              <div class="price">Rp 95.000</div>
+                <a href="#" class="btn-wa">
+                 <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+          <img src="assets/products/8.jpeg">
+            <div class="info">
+                <h3>DARK FREEDOM</h3>
+              <div class="price">Rp 95.000</div>
+                <a href="#" class="btn-wa">
+                 <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+          <img src="assets/products/9.jpeg">
+            <div class="info">
+                <h3>REBEL FLAG</h3>
+              <div class="price">Rp 95.000</div>
+                <a href="#" class="btn-wa">
+                 <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+          <img src="assets/products/10.jpeg">
+            <div class="info">
+                <h3>NO FUTURE</h3>
+              <div class="price">Rp 95.000</div>
+                <a href="#" class="btn-wa">
+                 <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+
+    </div>
+<div id="notif">⚠️ Ini hanya sampel</div>
+</div>
+
+
+<div id="bottom-bar-container"></div>
+
+</body>
+
+<script>
+
+fetch('components/top-banner.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('top-bar-container').innerHTML = data;
+  });
+
+
+
+fetch('components/bottom-bar.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('bottom-bar-container').innerHTML = data;
+  });
+
+document.querySelectorAll(".btn-wa").forEach(btn => {
+    btn.addEventListener("click", function(e) {
+        e.preventDefault();
+        showNotif();
+    });
+});
+
+function showNotif() {
+    const notif = document.getElementById("notif");
+
+    notif.classList.add("show");
+
+    setTimeout(() => {
+        notif.classList.remove("show");
+    }, 2000);
+}
+
+</script>
+</html>

@@ -1,0 +1,90 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<!-- STYLE -->
+<style>
+.bottom-bar {
+    position: fixed; /* 🔥 kunci utama */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 420px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 4px 0;
+
+    background: #2b2e83;
+    backdrop-filter: blur(12px);
+
+    border-top: 1px solid rgba(0,0,0,0.05);
+
+    z-index: 999; /* 🔥 biar di atas konten */
+}
+
+.bottom-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+
+    color: #fbf9f9;
+    font-size: 12px;
+
+    transition: 0.25s;
+}
+.bottom-item span {
+    display: block;
+    font-size: 11px;
+    margin-top: 2px;
+}
+.bottom-item i {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.bottom-item:hover {
+    color: #000;
+}
+
+/* ACTIVE MENU */
+.bottom-item.active {
+    color: #000;
+    font-weight: 600;
+}
+</style>
+<body>
+<!-- BOTTOM BAR -->
+<div class="bottom-bar">
+    <a href="index.html" class="bottom-item">
+        <i class="fa-solid fa-home"></i>
+        <span>Home</span>
+    </a>
+
+    <a href="store.html" class="bottom-item">
+        <i class="fa-solid fa-store"></i>
+        <span>Shop</span>
+    </a>
+
+    <a href="about.html" class="bottom-item">
+        <i class="fa-solid fa-user"></i>
+        <span>About Us</span>
+    </a>
+</div>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll('.bottom-item');
+    const current = window.location.pathname;
+
+    links.forEach(link => {
+        if (current.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
